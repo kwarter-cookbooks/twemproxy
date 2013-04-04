@@ -1,0 +1,7 @@
+<% @sections.each do |name, opts| -%>
+<%= name %>:
+<% opts[:config].each do |line| -%>
+    <%= line %>
+<% end if opts.key? :config -%>
+
+<% end -%>
