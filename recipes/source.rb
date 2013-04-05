@@ -10,18 +10,18 @@
 local_name ="#{Chef::Config['file_cache_path']}/nutcracker.tar.gz" 
 
 remote_file local_name do
-  source node[:twemproxy][:source_url]
-  action :nothing
+    source node[:twemproxy][:source_url]
+    action :nothing
 end
 
 http_request "HEAD #{node[:twemproxy][:source_url]}" do
-  message ""
-  url node[:twemproxy][:source_url]
-  action :head
-  if File.exists?(local_name)
-    headers "If-Modified-Since" => File.mtime(local_name).httpdate
-  end
-  notifies :create, "remote_file[#{local_name}]", :immediately
+    message ""
+    url node[:twemproxy][:source_url]
+    action :head
+    if File.exists?(local_name)
+        headers "If-Modified-Since" => File.mtime(local_name).httpdate
+    end
+    notifies :create, "remote_file[#{local_name}]", :immediately
 end
 
 bash "build_nutcracker" do
