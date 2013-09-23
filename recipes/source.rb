@@ -18,4 +18,5 @@ end
 template "nutcracker-init" do
   path "/etc/init.d/nutcracker"
   source "nutcracker.init.erb"
+  mode 0755
 end
