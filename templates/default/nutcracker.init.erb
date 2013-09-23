@@ -23,13 +23,14 @@ fi
 
 RETVAL=0
 prog="/usr/local/bin/nutcracker"
+lock_file="nutcracker"
 
 start () {
     echo -n $"Starting $prog: "
     daemon --user ${USER} ${prog} $OPTIONS
     RETVAL=$?
     echo
-    [ $RETVAL -eq 0 ] && touch /var/lock/subsys/${prog}
+    [ $RETVAL -eq 0 ] && touch /var/lock/subsys/${lock_file}
 }
 stop () {
     echo -n $"Stopping $prog: "
@@ -37,7 +38,7 @@ stop () {
     RETVAL=$?
     echo
     if [ $RETVAL -eq 0 ] ; then
-        rm -f /var/lock/subsys/${prog}
+        rm -f /var/lock/subsys/${lock_file}
     fi
 }
 
