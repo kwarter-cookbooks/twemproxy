@@ -9,7 +9,7 @@
 . /etc/rc.d/init.d/functions
 
 USER="nobody"
-OPTIONS="-d -c <%= node[:twemproxy][:config_file] %>
+OPTIONS="-d -c <%= node[:twemproxy][:config_file] %>"
 
 if [ -f /etc/sysconfig/nutcracker ];then
     . /etc/sysconfig/nutcracker
