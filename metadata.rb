@@ -13,3 +13,4 @@ recipe "twemproxy", "Installs and configures twemproxy"
 end
 
 depends "build-essential"
+depends "ark", "~> 0.3"
