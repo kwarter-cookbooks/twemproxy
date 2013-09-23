@@ -13,7 +13,7 @@ ark "twemproxy" do
   url node[:twemproxy][:source_url]
   prefix_root node[:twemproxy][:source_prefix]
   version node[:twemproxy][:version]
-  action [ :configure, :install_with_make ]
+  action [ :install_with_make ]
 end
 
 template "nutcracker-init" do
