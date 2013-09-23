@@ -9,7 +9,7 @@
 
 default[:twemproxy][:install_method] = "package"
 
-defalut[:twemproxy][:version] = "0.2.3"
+default[:twemproxy][:version] = "0.2.3"
 default[:twemproxy][:source_url] = "https://code.google.com/p/twemproxy/downloads/detail?name=nutcracker-#{default[:twemproxy][:version]}.tar.gz&can=2&q="
 
 default[:twemproxy][:package] = "nutcracker"
