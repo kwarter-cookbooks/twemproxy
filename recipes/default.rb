@@ -17,9 +17,6 @@ end
 
 service "nutcracker" do
     action [:enable, :start]
-    supports :reload => true, :restart => true, :status => true, :enable => true
-    if node[:twemproxy][:install_method] == "source"
-      provider Chef::Provider::Service::Init
-    end
+    supports :reload => true, :restart => true, :status => true
     subscribes :restart, resources(:template => "nutcracker-conf")
 end
