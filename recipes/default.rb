@@ -12,6 +12,7 @@ include_recipe "twemproxy::#{node[:twemproxy][:install_method]}"
 template "nutcracker-conf" do
     path node[:twemproxy][:config_file]
     source "nutcracker.conf.erb"
+    mode 0644
     variables :sections => node[:twemproxy][:config]
 end
 
