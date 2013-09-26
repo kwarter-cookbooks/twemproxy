@@ -14,6 +14,7 @@ template "nutcracker-conf" do
     source "nutcracker.conf.erb"
     mode 0644
     variables :sections => node[:twemproxy][:config]
+    notifies :restart, "service[nutcracker]"
 end
 
 service "nutcracker" do
